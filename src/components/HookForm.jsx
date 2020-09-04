@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Hook_Form = () => {
+const HookForm = () => {
     const [user, setUser] = useState({
         first_name: '',
         last_name: '',
@@ -8,12 +8,36 @@ const Hook_Form = () => {
         password: '',
         c_password: '',
     });
+    const [firstNameError, setFirstNameError] = useState('');
+    const [lastNameError, setLastNameError] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
     const handleUser = (e) => {
         setUser({
             ...user,
             [e.target.name]: e.target.value,
         });
+        if (user.first_name.length < 2) {
+            setFirstNameError('First name must be at least 2 characters');
+        } else {
+            setFirstNameError('');
+        }
+        if (user.last_name.length < 2) {
+            setLastNameError('Last name must be at least 2 characters');
+        } else {
+            setLastNameError('');
+        }
+        if (user.email.length < 5) {
+            setEmailError('Email must be at least 5 characters');
+        } else {
+            setEmailError('');
+        }
+        if (user.password.length < 8) {
+            setPasswordError('Password must be at least 8 characters');
+        } else {
+            setPasswordError('');
+        }
     };
 
     const handleSubmit = (e) => {
@@ -39,6 +63,9 @@ const Hook_Form = () => {
                         value={user.first_name}
                         onChange={handleUser}
                     />
+                    {firstNameError ? (
+                        <p style={{ color: 'red' }}>{firstNameError}</p>
+                    ) : null}
                 </div>
                 <div className="form-group">
                     <label>Last Name:</label>
@@ -49,6 +76,9 @@ const Hook_Form = () => {
                         value={user.last_name}
                         onChange={handleUser}
                     />
+                    {lastNameError ? (
+                        <p style={{ color: 'red' }}>{lastNameError}</p>
+                    ) : null}
                 </div>
                 <div className="form-group">
                     <label>Email:</label>
@@ -59,6 +89,9 @@ const Hook_Form = () => {
                         value={user.email}
                         onChange={handleUser}
                     />
+                    {emailError ? (
+                        <p style={{ color: 'red' }}>{emailError}</p>
+                    ) : null}
                 </div>
                 <div className="form-group">
                     <label>Password:</label>
@@ -69,6 +102,9 @@ const Hook_Form = () => {
                         value={user.password}
                         onChange={handleUser}
                     />
+                    {passwordError ? (
+                        <p style={{ color: 'red' }}>{passwordError}</p>
+                    ) : null}
                 </div>
                 <div className="form-group">
                     <label>Confirm Password:</label>
@@ -97,4 +133,4 @@ const Hook_Form = () => {
     );
 };
 
-export default Hook_Form;
+export default HookForm;
