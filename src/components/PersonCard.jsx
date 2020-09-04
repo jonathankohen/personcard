@@ -1,18 +1,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const PersonCard = () => {
+const PersonCard = (props) => {
     return (
         <div className="card">
             <div className="card-body">
                 <h4 className="card-title">
-                    {this.props.lastName}, {this.props.firstName}
+                    {props.lastName}, {props.firstName}
                 </h4>
-                <p className="card-text">{this.state.age}</p>
-                <p className="card-text">Hair Color: {this.props.hairColor}</p>
-                <button onClick={this.addYear}>
-                    Birthday Button for {this.props.firstName}{' '}
-                    {this.props.lastName}
+                <p className="card-text">{props.age}</p>
+                <p className="card-text">Hair Color: {props.hairColor}</p>
+                <button>
+                    Birthday Button for {props.firstName} {props.lastName}
                 </button>
             </div>
         </div>
