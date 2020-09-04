@@ -1,14 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import PersonCard from './components/PersonCard';
-import Sandwich from './components/Sandwich';
+// import PersonCard from './components/PersonCard';
+// import Sandwich from './components/Sandwich';
+import HookForm from './components/HookForm';
 
 function App() {
     return (
         <div className="App">
+            <HookForm />
             {/* <Sandwich /> */}
-            <div className="card-group">
+            {/* <div className="card-group">
                 <PersonCard
                     firstName="Jane"
                     lastName="Doe"
@@ -33,7 +35,7 @@ function App() {
                     age={62}
                     hairColor="Brown"
                 />
-            </div>
+            </div> */}
         </div>
     );
 }
